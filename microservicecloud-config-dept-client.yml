@@ -5,15 +5,6 @@ spring:
 
 ---
 
-server:
-  port: 8001
-  
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
-  type-aliases-package: com.zfl.cloud.Entity    # 所有Entity别名类所在包
-  mapper-locations:
-  - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
-    
 spring:
    profiles: dev 
    application:
@@ -29,11 +20,19 @@ spring:
       initial-size: 5                                       # 初始化连接数
       max-total: 5                                          # 最大连接数
       max-wait-millis: 200                                    # 等待连接获取的最大超时时间
+server:
+  port: 8001
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.zfl.cloud.Entity    # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
+   
     
 eureka:
   client:  #客户端注册进eureka服务列表内
    service-url: 
-    defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+    defaultZone: http://eureka7001.com:7001/eureka/
   instance: 
     instance-id: microservicecloud-dept8001
     prefer-ip-address: true     #访问路径可以显示IP地址     
@@ -44,15 +43,6 @@ info:
   build.artifactId: $project.artifactId$
   build.version: $project.version$
 ---
-server:
-  port: 8001
-  
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
-  type-aliases-package: com.zfl.cloud.Entity    # 所有Entity别名类所在包
-  mapper-locations:
-  - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
-    
 spring:
    profiles: test
    application:
@@ -68,11 +58,19 @@ spring:
       initial-size: 5                                       # 初始化连接数
       max-total: 5                                          # 最大连接数
       max-wait-millis: 200                                    # 等待连接获取的最大超时时间
+server:
+  port: 8001
+  
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.zfl.cloud.Entity    # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
     
 eureka:
   client:  #客户端注册进eureka服务列表内
    service-url: 
-    defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+    defaultZone: http://eureka7001.com:7001/eureka/
   instance: 
     instance-id: microservicecloud-dept8001
     prefer-ip-address: true     #访问路径可以显示IP地址     
